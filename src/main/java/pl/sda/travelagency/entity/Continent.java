@@ -14,11 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 
 public class Continent {
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-private String name;
+    private String name;
 
     @OneToMany(mappedBy = "continent")
     private List<Country> countries;

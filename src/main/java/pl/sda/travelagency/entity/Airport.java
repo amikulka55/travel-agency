@@ -12,10 +12,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Airport {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     @ManyToOne
+    @JoinColumn(name = "city_id")
     private City city;
 
 }

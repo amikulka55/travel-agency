@@ -16,27 +16,32 @@ import java.time.LocalDate;
 
 public class Trip {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "departure_city_id")
     private City departureCity;
     @ManyToOne
+    @JoinColumn(name = "departure_airport_id")
     private Airport departureAirport;
     @ManyToOne
+    @JoinColumn(name="arrival_city_id")
     private City arrivalCity;
     @ManyToOne
+    @JoinColumn(name = "arrival_airport_id")
     private Airport arrivalAirport;
     @OneToOne
-    private Hotel hotel;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate startDate;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate endDate;
+    @JoinColumn(name = "hotel_id")
+    private Hotel hotelId;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private LocalDate departureDate;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private LocalDate arrivalDate;
     private Integer days;
+    private boolean isPromoted;
     private Double adultPrice;
     private Double childPrice;
-    private boolean isPromoted;
     private Integer numberOfAdultPlaces;
     private Integer numberOfChildPlaces;
 }
