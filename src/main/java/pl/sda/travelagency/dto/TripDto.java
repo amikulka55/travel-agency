@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Data
 public class TripDto {
@@ -22,8 +22,8 @@ public class TripDto {
     private String arrivalCity;
     private String arrivalAirport;
     private String hotel;
-    private String startDate;
-    private String endDate;
+    private LocalDate departureDate;
+    private LocalDate arrivalDate;
     private Integer days;
     private Double adultPrice;
     private Double childPrice;
@@ -31,5 +31,12 @@ public class TripDto {
     private Integer numberOfAdultPlaces;
     private Integer numberOfChildPlaces;
 
+    public TripDto( String departureCity,String arrivalCity, LocalDate departureDate, LocalDate arrivalDate, boolean isPromoted) {
+        this.departureCity = departureCity;
+        this.arrivalCity = arrivalCity;
+        this.departureDate = departureDate;
+        this.arrivalDate = arrivalDate;
+        this.isPromoted = isPromoted;
 
+    }
 }
