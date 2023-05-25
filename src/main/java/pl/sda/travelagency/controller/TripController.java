@@ -16,7 +16,7 @@ import java.util.List;
 public class TripController {
 
 public final TripService tripService;
-    @GetMapping("/all")
+    @GetMapping
     public String showTrips(Model model) {
         List<TripDto> trips = tripService.getTrips();
         List<TripDto> promotingTrips = trips.stream().filter(TripDto::isPromoted).toList();
