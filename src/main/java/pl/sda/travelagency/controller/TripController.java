@@ -11,12 +11,12 @@ import pl.sda.travelagency.service.TripService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/trips")
 @RequiredArgsConstructor
 public class TripController {
 
 public final TripService tripService;
-    @GetMapping
+    @GetMapping("/all")
     public String showTrips(Model model) {
         List<TripDto> trips = tripService.getTrips();
         List<TripDto> promotingTrips = trips.stream().filter(TripDto::isPromoted).toList();
