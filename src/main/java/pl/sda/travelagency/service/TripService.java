@@ -8,6 +8,7 @@ import pl.sda.travelagency.repository.TripRepository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,5 +41,22 @@ public final TripRepository tripRepository;
                 })
                 .limit(5)
                 .collect(Collectors.toList());
+    }
+    public TripDto getTripById(long id) {
+        Optional<Trip> byId = tripRepository.findById(id);
+        TripDto tripDto = new TripDto();
+        byId.ifPresent(it -> {
+            tripDto.setId(it.getId());
+            tripDto.setDepartureCity(it.getDepartureCity().getName());
+            tripDto.setArrivalCity(it.getArrivalCity().getName());
+            tripDto.setDepartureAirport(it.getDepartureAirport().getName());
+            tripDto.setArrivalAirport(it.getArrivalAirport().getName());
+            tripDto.setDepartureDate(it.getDepartureDate());
+            tripDto.setArrivalDate(it.getArrivalDate());
+            tripDto.setHotel(it.getHotelId().getName());
+            tripDto.setAdultPrice(it.getAdultPrice());
+            tripDto.setChildPrice(it.getChildPrice());
+        });
+        return tripDto;
     }
 }
