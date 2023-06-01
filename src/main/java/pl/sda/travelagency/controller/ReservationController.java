@@ -23,7 +23,7 @@ public class ReservationController {
         this.reservationService = reservationService;
     }
 
-    @GetMapping("/{travelId}")
+    @GetMapping("/{tripId}")
     public String reserveView(Model model, @PathVariable long travelId) {
         TripOrderDto tripOrderDto = new TripOrderDto();
         tripOrderDto.simpleParticipantDtos = new ArrayList<>();
@@ -32,13 +32,13 @@ public class ReservationController {
         model.addAttribute("trip", tripById);
         return "reservation";
     }
-    @PostMapping("/make-reservation/{travelId}")
+    @PostMapping("/make-reservation/{tripId}")
     public String reservation(@ModelAttribute TripOrderDto tripOrderDto, @PathVariable long tripId, Model model){
         reservationService.createReservation(tripOrderDto, tripId);
         return "reservation-summary";
     }
 
-    @PostMapping("/{travelId}")
+    @PostMapping("/{tripId}")
     public String reservation(@ModelAttribute TripOrderDto tripOrderDto, Model model, @RequestParam(value = "action", required = false) String action, @PathVariable long tripId ){
         boolean delete = action != null && action.startsWith("delete");
         TripDto tripById = tripService.getTripById(tripId);
