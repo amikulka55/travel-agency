@@ -37,6 +37,7 @@ public final TripRepository tripRepository;
                 .map(it -> {
                     TripDto tripDto = new TripDto(it.getDepartureCity().getName(), it.getArrivalCity().getName(), it.getDepartureDate(), it.getArrivalDate(), it.isPromoted());
                     tripDto.setAdultPrice(it.getAdultPrice());
+                    tripDto.setId(it.getId());
                     return tripDto;
                 })
                 .limit(5)

@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link"  th:href="@{/search}" style=" font-weight: 600">Szukaj wycieczki</a>
+                    <a class="nav-link"  th:href="@{/trips/search}" style=" font-weight: 600">Szukaj wycieczki</a>
                 </li>
             </div>
         </div>
@@ -27,7 +27,7 @@
 <hr style="margin:0"/>
 <div class="container">
     <h3 style="font-weight: 900"><string>Szukaj wycieczek</string></h3>
-    <form th:action="@{/search}">
+    <form th:action="@{/trips/search}">
         <div class="row">
             <div class="col">
                 <input type="text" class="form-control" placeholder="Miasto z" th:name="departureCity" th:value="${departureCity}">
@@ -55,7 +55,7 @@
                     <div class="card-body">
                         <h5 class="card-title" th:text="${trip.arrivalCity}"></h5>
                         <h6 class="card-subtitle mb-2 text-muted" th:text="${trip.departureDate} + ' - ' + ${trip.arrivalDate}"></h6>
-                        <a th:href="@{/trip-details/{id}(id=${trip.id})}" class="btn btn-outline-primary" style="float: right">Więcej</a>
+                        <a th:href="@{/trips/trip-details/{id}(id=${trip.id})}" class="btn btn-outline-primary" style="float: right">Więcej</a>
                     </div>
                 </div>
             </div>

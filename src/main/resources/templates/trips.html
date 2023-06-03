@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link"  th:href="@{/search}">Znajdz wymarzone wakacje</a>
+                    <a class="nav-link"  th:href="@{/trips/search}">Znajdz wymarzone wakacje</a>
                 </li>
             </div>
         </div>
@@ -50,7 +50,8 @@
                         </svg>
                         <h6 style="margin-right:5px; display: inline" class="card-subtitle mb-2 text-muted" th:text="${promotingTrip.departureDate} + ' - ' + ${promotingTrip.arrivalDate}"></h6>
                         <a class="btn btn-outline-primary custom-btn" style="float: left;" th:text="${promotingTrip.adultPrice} + ' zł / dorosły'">Wiecej</a>
-                        <a th:href="@{/trip-details/{id}(id=${promotingTrip.id})}"  class="btn btn-outline-primary" style="float: right">Wiecej</a>
+                       <p th:text = "${promotingTrip.id}"></p>
+                        <a th:href="@{/trips/trip-details/{id}(id=${promotingTrip.id})}"  class="btn btn-outline-primary" style="float: right">Wiecej</a>
                     </div>
                 </div>
             </div>

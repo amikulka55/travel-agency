@@ -46,6 +46,6 @@ public final TripService tripService;
     public String tripDetails(Model model, @PathVariable Long id) {
         TripDto tripById = tripService.getTripById(id);
         model.addAttribute("trip", tripById);
-        return "/trip-details";
+        return "trip-details";
     }
 }
