@@ -54,6 +54,7 @@
                 <div class="card shadow-sm" style="width: 100%; margin-left: auto; margin-right: auto; margin-bottom: 25px">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${trip.arrivalCity}"></h5>
+                        <img th:src="@{/img/__${trip.imageName}__}" style="width:100%; height: auto; border-radius:10px ">
                         <h6 class="card-subtitle mb-2 text-muted" th:text="${trip.departureDate} + ' - ' + ${trip.arrivalDate}"></h6>
                         <a th:href="@{/trips/trip-details/{id}(id=${trip.id})}" class="btn btn-outline-primary" style="float: right">Więcej</a>
                     </div>
