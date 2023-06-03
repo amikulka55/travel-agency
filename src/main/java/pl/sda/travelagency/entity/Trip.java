@@ -18,7 +18,7 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String imageName;
     @ManyToOne
     @JoinColumn(name = "departure_city_id")
     private City departureCity;

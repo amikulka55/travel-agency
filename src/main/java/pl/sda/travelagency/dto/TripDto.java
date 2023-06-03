@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @Data
 public class TripDto {
     private Long id;
+    private String imageName;
     private String departureCity;
     private String departureAirport;
     private String arrivalCity;
@@ -37,6 +38,7 @@ public class TripDto {
         this.departureDate = departureDate;
         this.arrivalDate = arrivalDate;
         this.isPromoted = isPromoted;
+        this.imageName = imageName;
 
     }
 }

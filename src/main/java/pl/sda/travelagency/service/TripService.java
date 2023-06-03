@@ -38,6 +38,7 @@ public final TripRepository tripRepository;
                     TripDto tripDto = new TripDto(it.getDepartureCity().getName(), it.getArrivalCity().getName(), it.getDepartureDate(), it.getArrivalDate(), it.isPromoted());
                     tripDto.setAdultPrice(it.getAdultPrice());
                     tripDto.setId(it.getId());
+                    tripDto.setImageName(it.getImageName());
                     return tripDto;
                 })
                 .limit(5)
