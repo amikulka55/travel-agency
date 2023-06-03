@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link"  th:href="@{/search}">Szukaj wycieczki</a>
+                    <a class="nav-link"  th:href="@{/trips/search}">Szukaj wycieczki</a>
                 </li>
             </div>
         </div>
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <h3 style="font-weight: 900" th:text="'Rezerwacja wycieczki - ' + ${travel.name}"></h3>
+    <h3 style="font-weight: 900" th:text="'Rezerwacja wycieczki - ' + ${trip.arrivalCity}"></h3>
     <hr/>
     <form th:action="@{/reservation/{tripId}(tripId=${trip.id})}" method="post" th:object="${tripOrderDto}">
         <th:block>

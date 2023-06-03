@@ -24,10 +24,10 @@ public class ReservationController {
     }
 
     @GetMapping("/{tripId}")
-    public String reserveView(Model model, @PathVariable long travelId) {
+    public String reserveView(Model model, @PathVariable long tripId) {
         TripOrderDto tripOrderDto = new TripOrderDto();
-        tripOrderDto.simpleParticipantDtos = new ArrayList<>();
-        TripDto tripById = tripService.getTripById(travelId);
+        tripOrderDto.setSimpleParticipantDtos(new ArrayList<>());
+        TripDto tripById = tripService.getTripById(tripId);
         model.addAttribute("tripOrderDto", tripOrderDto);
         model.addAttribute("trip", tripById);
         return "reservation";
@@ -45,8 +45,8 @@ public class ReservationController {
         if ( delete) {
             String substring = action.substring(6, 7);
             int i = Integer.parseInt(substring);
-            SimpleParticipantDto simpleParticipantDto = tripOrderDto.simpleParticipantDtos.get(i);
-            tripOrderDto.simpleParticipantDtos.remove(simpleParticipantDto);
+            SimpleParticipantDto simpleParticipantDto = tripOrderDto.getSimpleParticipantDtos().get(i);
+            tripOrderDto.getSimpleParticipantDtos().remove(simpleParticipantDto);
             model.addAttribute("tripOrderDto", tripOrderDto);
             model.addAttribute("trip", tripById);
             return "reservation";
@@ -58,10 +58,10 @@ public class ReservationController {
             model.addAttribute("trip", tripById);
             return "summary";
         } else {
-            if (tripOrderDto.simpleParticipantDtos == null) {
-                tripOrderDto.simpleParticipantDtos = new ArrayList<>();
+            if (tripOrderDto.getSimpleParticipantDtos() == null) {
+                tripOrderDto.setSimpleParticipantDtos(new ArrayList<>());
             }
-            tripOrderDto.simpleParticipantDtos.add(new SimpleParticipantDto());
+            tripOrderDto.getSimpleParticipantDtos().add(new SimpleParticipantDto());
 
             model.addAttribute("tripOrderDto", tripOrderDto);
             model.addAttribute("trip", tripById);
