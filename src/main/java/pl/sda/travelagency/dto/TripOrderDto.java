@@ -13,5 +13,5 @@ public class TripOrderDto {
     String buyerLastName;
     String buyerPhone;
     String buyerEmail;
-    double sum;
+    double cost;
 }

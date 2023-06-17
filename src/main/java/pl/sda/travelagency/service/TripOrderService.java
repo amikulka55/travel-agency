@@ -27,7 +27,7 @@ public class TripOrderService {
                     tripOrderDto.getBuyerEmail();
                     tripOrderDto.getBuyerFirstName();
                     tripOrderDto.getBuyerLastName();
-                    tripOrderDto.getSum();
+                    tripOrderDto.getCost();
                     return tripOrderDto;
                 })
                 .limit(10)

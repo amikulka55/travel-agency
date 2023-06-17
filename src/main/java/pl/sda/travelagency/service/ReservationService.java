@@ -49,6 +49,7 @@ public class ReservationService {
             List<String> strings = tripOrderDto.getSimpleParticipantDtos().stream().map(elem -> elem.getFirstName() + " " + elem.getLastName()).toList();
             String participants = String.join(",", strings);
             tripOrder.setParticipants(participants);
+            tripOrder.setSum(tripOrderDto.getCost());
             tripOrderRepository.save(tripOrder);
         });
 

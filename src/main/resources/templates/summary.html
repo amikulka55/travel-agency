@@ -66,6 +66,9 @@
                         <label for="email"><strong>Email</strong></label>
                         <input readonly placeholder="Imie" type="text" th:field="*{buyerEmail}" th:value="${tripOrderDto.buyerEmail}" id ="email" class="form-control">
                     </li>
+                    <li class="list-group-items" style = "border: none; padding: 0; margin-top: 10px; display: none" >
+                        <input type="text" th:field="*{cost}" th:value="${tripOrderDto.cost}" id = "cost" class ="form-control">
+                    </li>
                 </ul>
             </div>
         </div>
