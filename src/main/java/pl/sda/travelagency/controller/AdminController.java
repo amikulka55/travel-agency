@@ -1,21 +1,32 @@
 package pl.sda.travelagency.controller;
 
+<<<<<<< HEAD
 import lombok.AllArgsConstructor;
+=======
+>>>>>>> origin/master
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
 import pl.sda.travelagency.dto.TripDto;
+=======
+>>>>>>> origin/master
 import pl.sda.travelagency.dto.TripOrderDto;
 import pl.sda.travelagency.repository.TripOrderRepository;
 import pl.sda.travelagency.service.TripOrderService;
 
 import java.util.List;
+<<<<<<< HEAD
 @AllArgsConstructor
+=======
+
+>>>>>>> origin/master
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
+<<<<<<< HEAD
 
 public final TripOrderService tripOrderService;
 public final TripOrderRepository tripOrderRepository;
@@ -42,3 +53,19 @@ public final TripOrderRepository tripOrderRepository;
 
 }
 
+=======
+    private TripOrderService tripOrderService;
+
+
+    @GetMapping
+    public String showTrips(Model model) {
+        List<TripOrderDto> trips = tripOrderService.showTrips();
+       // List<TripOrderDto>
+
+
+    }
+
+    ;
+
+}
+>>>>>>> origin/master
