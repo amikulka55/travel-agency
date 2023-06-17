@@ -33,10 +33,10 @@ public class AdminController {
     }
 
     @GetMapping
-    public String travels(Model model) {
-        List<TripDto> travels = tripService.getTrips();
-        model.addAttribute("travels", travels);
-        return "admin/travels";
+    public String trips(Model model) {
+        List<TripDto> trips = tripService.getTrips();
+        model.addAttribute("trips", trips);
+        return "admin/trips";
     }
 
     @PostMapping("/travel/delete/{id}")
