@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.sda.travelagency.dto.TripDto;
 import pl.sda.travelagency.service.TripService;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
 @RequestMapping("/trips")
 @RequiredArgsConstructor
 public class TripController {
+
 
 public final TripService tripService;
     @GetMapping
