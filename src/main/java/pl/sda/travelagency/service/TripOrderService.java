@@ -22,15 +22,13 @@ public class TripOrderService {
         return all.stream()
                 .map(it-> {
                     TripOrderDto tripOrderDto = new TripOrderDto();
-                    tripOrderDto.getSimpleParticipantDtos();
-                    tripOrderDto.getBuyerPhone();
-                    tripOrderDto.getBuyerEmail();
-                    tripOrderDto.getBuyerFirstName();
-                    tripOrderDto.getBuyerLastName();
-                    tripOrderDto.getCost();
+                    tripOrderDto.setBuyerFirstName(it.getBuyerFirstName());
+                    tripOrderDto.setBuyerLastName(it.getBuyerLastName());
+                    tripOrderDto.setBuyerPhone(it.getBuyerPhone());
+                    tripOrderDto.setBuyerEmail(it.getBuyerEmail());
+                    tripOrderDto.setCost(it.getSum());
                     return tripOrderDto;
                 })
-                .limit(10)
                 .collect(Collectors.toList());
     }
 
