@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Trip {
+public class Trip  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

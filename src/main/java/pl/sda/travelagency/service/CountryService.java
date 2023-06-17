@@ -1,6 +1,11 @@
 package pl.sda.travelagency.service;
 
 import org.springframework.stereotype.Service;
+import pl.sda.travelagency.dto.CountryDto;
+import pl.sda.travelagency.entity.Continent;
+import pl.sda.travelagency.entity.Country;
+import pl.sda.travelagency.repository.ContinentRepository;
+import pl.sda.travelagency.repository.CountryRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +25,7 @@ public class CountryService {
     public List<CountryDto> getCountries() {
         List<Country> countries = countryRepository.findAll();
         List<CountryDto> collect = countries.stream()
-                .map(it -> new CountryDto(it.getId(), it.getName(), it.getContinent().getId(), it.getContinent().getName()))
+                .map(it -> new CountryDto(it.getId(), it.getName(), it.getContinent().getId()))
                 .collect(Collectors.toList());
         return collect;
     }

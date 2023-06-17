@@ -1,6 +1,11 @@
 package pl.sda.travelagency.service;
 
 import org.springframework.stereotype.Service;
+import pl.sda.travelagency.dto.AirportDto;
+import pl.sda.travelagency.entity.Airport;
+import pl.sda.travelagency.entity.City;
+import pl.sda.travelagency.repository.AirportRepository;
+import pl.sda.travelagency.repository.CityRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +26,7 @@ public class AirportService {
     public List<AirportDto> getAirports() {
         List<AirportDto> collect = airportRepository.findAll()
                 .stream()
-                .map(it -> new AirportDto(it.getId(), it.getName(), it.getCity().getId(), it.getCity().getName()))
+                .map(it -> new AirportDto(it.getId(), it.getName(), it.getCity().getId()))
                 .collect(Collectors.toList());
         return collect;
     }

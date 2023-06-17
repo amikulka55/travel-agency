@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+import pl.sda.travelagency.dto.ContinentDto;
+import pl.sda.travelagency.entity.Continent;
+import pl.sda.travelagency.repository.ContinentRepository;
 
 @Service
 public class ContinentService {

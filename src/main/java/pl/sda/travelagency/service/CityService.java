@@ -1,6 +1,13 @@
 package pl.sda.travelagency.service;
 
 import org.springframework.stereotype.Service;
+import pl.sda.travelagency.dto.CityDto;
+import pl.sda.travelagency.entity.City;
+import pl.sda.travelagency.entity.Country;
+import pl.sda.travelagency.entity.Trip;
+import pl.sda.travelagency.repository.CityRepository;
+import pl.sda.travelagency.repository.CountryRepository;
+import pl.sda.travelagency.repository.TripRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,18 +20,18 @@ public class CityService {
 
     private final CountryRepository countryRepository;
 
-    private final TravelRepository travelRepository;
+    private final TripRepository tripRepository;
 
-    public CityService(CityRepository cityRepository, CountryRepository countryRepository, TravelRepository travelRepository) {
+    public CityService(CityRepository cityRepository, CountryRepository countryRepository, TripRepository tripRepository) {
         this.cityRepository = cityRepository;
         this.countryRepository = countryRepository;
-        this.travelRepository = travelRepository;
+        this.tripRepository = tripRepository;
     }
 
     public List<CityDto> getCities() {
         List<CityDto> collect = cityRepository.findAll()
                 .stream()
-                .map(it -> new CityDto(it.getId(), it.getName(), it.getCountry().getId(), it.getCountry().getName()))
+                .map(it -> new CityDto(it.getId(), it.getName(), it.getCountry().getId()))
                 .collect(Collectors.toList());
         return collect;
     }
@@ -43,7 +50,7 @@ public class CityService {
     }
 
     public boolean checkCityCanBeDelete(long id) {
-        List<Travel> byFromCityOrToCity = travelRepository.findByFromCityOrToCity(id);
+        List<Trip> byFromCityOrToCity = tripRepository.findByFromCityOrToCity(id);
         if (byFromCityOrToCity.isEmpty()) {
             return true;
         } else {
