@@ -53,7 +53,8 @@ public class ReservationController {
         } else if (action!= null && action.equals("save")) {
             double totalCost = reservationService.calculateCost(tripOrderDto, tripId);
 
-            model.addAttribute("totalCost", totalCost);
+            model.addAttribute("totalCost", totalCost + tripById.getAdultPrice());
+            tripOrderDto.setCost(totalCost + tripById.getAdultPrice());
             model.addAttribute("tripOrderDto", tripOrderDto);
             model.addAttribute("trip", tripById);
             return "summary";
